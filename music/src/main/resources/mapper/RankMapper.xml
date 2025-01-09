@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moyv.music.dao.RankMapper">
+    <resultMap id="BaseResultMap" type="com.moyv.music.domain.Rank">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="song_list_id" jdbcType="INTEGER" property="songListId"/>
+        <result column="consumer_id" jdbcType="INTEGER" property="consumerId"/>
+        <result column="score" jdbcType="INTEGER" property="score"/>
+    </resultMap>
+
+    <!--trim（修剪） 标签用于处理 SQL 语句的前后部分-->
+    <!--prefix（前缀）suffix（后缀）表示生成的字符串会被包裹在圆括号中-->
+    <!--suffixOverrides="," 的作用是去掉最后一个逗号（,）-->
+    <!--使用test进行条件判断-->
+    <insert id="insert" parameterType="com.moyv.music.domain.Rank">
+        insert into rank
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="songListId != null">
+                song_list_id,
+            </if>
+            <if test="consumerId != null">
+                consumer_id,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+        </trim>
+            values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="songListId != null">
+                #{songListId},
+            </if>
+            <if test="consumerId != null">
+                #{consumerId},
+            </if>
+            <if test="score != null">
+                #{score},
+            </if>
+        </trim>
+    </insert>
+
+<!--    coalesce(合并) sum(score)值为空时 返回0 -->
+    <select id="selectScoreSum" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select COALESCE(sum(score),0) as score  from rank where  song_list_id = #{songListId} ;
+    </select>
+
+    <select id="selectRankNum" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select COALESCE(count(id),0) as num  from rank where  song_list_id = #{songListId} ;
+    </select>
+</mapper>

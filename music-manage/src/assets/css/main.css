@@ -1,0 +1,56 @@
+.content-box {
+  position: absolute;
+  left: 150px;
+  right: 0;
+  top: 70px;
+  bottom: 0;
+  /* overflow: scroll; */
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  background-color: #f0f0f0;
+  /* height: 100vh; */
+}
+
+.content-collapse {
+  left: 65px;
+}
+
+.table {
+  min-width: 800px;
+}
+
+.container {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.crumbs {
+  margin-bottom: 20px;
+  display: flex;
+}
+.crumbs img {
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+}
+.crumbs-txt {
+  margin-top: -4px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: normal;
+  color: #333;
+}
+
+.mgb20 {
+  margin-bottom: 20px;
+}
+
+.mgb201 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  color: #000000;
+}

@@ -1,0 +1,59 @@
+.content {
+  font-family: Arial, sans-serif;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+}
+
+.alblum-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.alblum-li {
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px 0;
+}
+.alblum-li:hover {
+  background-color: #f2f8fd9e;
+}
+.song-item {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item-index {
+  flex: 0.1;
+  text-align: center;
+}
+
+.item-title {
+  flex: 0.4;
+}
+.item-title1 {
+  flex: 0.4;
+}
+
+.item-title:hover {
+  color: #14a9ff;
+}
+
+.item-name {
+  flex: 0.4;
+}
+
+.item-intro {
+  flex: 0.3;
+  text-align: center;
+}

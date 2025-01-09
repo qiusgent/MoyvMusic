@@ -1,0 +1,43 @@
+.info2-data {
+  padding-bottom: 30px;
+}
+
+.info2-data .info2-title {
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+.info2-title {
+  text-align: center;
+}
+
+.info2-data hr {
+  width: 95%;
+}
+
+.info2-data .personal {
+  padding-right: 50px;
+  padding-top: 30px;
+  width: 92%;
+}
+
+.info2-data .info2-btn {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.personal .el-input--mini .el-input__inner {
+  height: 40px;
+}
+.personal .el-form-item--mini .el-form-item__content,
+.personal .el-form-item--mini .el-form-item__label {
+  line-height: 50px;
+  margin-bottom: 2px;
+}

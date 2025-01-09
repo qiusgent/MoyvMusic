@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moyv.music.dao.SongMapper">
+    <resultMap id="BaseResultMap" type="com.moyv.music.domain.Song">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="singer_id" jdbcType="VARCHAR" property="singerId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="pic" jdbcType="VARCHAR" property="pic"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+    </resultMap>
+
+    <resultMap id="ResultMap" type="com.moyv.music.domain.Song" extends="BaseResultMap">
+        <result column="lyric" jdbcType="LONGNVARCHAR" property="lyric"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_list">
+        id,singer_id,name,introduction,create_time,update_time,pic,url
+    </sql>
+
+    <sql id="Blob_Column_list">
+        id,singer_id,name,introduction,create_time,update_time,pic,lyric,url
+    </sql>
+
+    <!--trim（修剪） 标签用于处理 SQL 语句的前后部分-->
+    <!--prefix（前缀）suffix（后缀）表示生成的字符串会被包裹在圆括号中-->
+    <!--suffixOverrides="," 的作用是去掉最后一个逗号（,）-->
+    <!--使用test进行条件判断-->
+    <insert id="insert" parameterType="com.moyv.music.domain.Song">
+        insert into song
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="singerId != null">
+                singer_id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="introduction != null">
+                introduction,
+            </if>
+            create_time,update_time,
+            <if test="pic != null">
+                pic,
+            </if>
+            <if test="lyric != null">
+                lyric,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+        </trim>
+            values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="singerId != null">
+                #{singerId},
+            </if>
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="introduction != null">
+                #{introduction},
+            </if>
+            now(),now(),
+            <if test="pic != null">
+                #{pic},
+            </if>
+            <if test="lyric != null">
+                #{lyric},
+            </if>
+            <if test="url != null">
+                #{url},
+            </if>
+        </trim>
+    </insert>
+    
+    <update id="update" parameterType="com.moyv.music.domain.Song">
+        update song
+        <set>
+            <if test="singerId != null">
+                singer_id = #{singerId},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="introduction != null">
+                introduction = #{introduction},
+            </if>
+            update_time = now(),
+            <if test="pic != null">
+                pic = #{pic},
+            </if>
+            <if test="lyric != null">
+                lyric = #{lyric},
+            </if>
+            <if test="url != null">
+                url = #{url},
+            </if>
+
+        </set>
+            where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from song where id=#{id}
+    </delete>
+
+    <select id="findById" resultType="com.moyv.music.domain.Song" parameterType="java.lang.Integer">
+        select * from song where id =#{id}
+    </select>
+
+    <select id="allSong" resultMap="BaseResultMap">
+        select * from song ;
+    </select>
+
+    <select id="songOfName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select * from song where name = #{name} ;
+    </select>
+
+    <select id="likesongOfName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select * from song where name like #{name};
+    </select>
+
+    <select id="songOfSingerId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select * from song where singer_id = #{singerId} ;
+    </select>
+</mapper>

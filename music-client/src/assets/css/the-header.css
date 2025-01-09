@@ -1,0 +1,144 @@
+/*头部*/
+.the-header {
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 56px;
+  /* line-height: 60px; */
+  padding: 10px;
+  margin: 0px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+/*左侧LOGO*/
+.header-logo {
+  margin: 0 20px;
+  font-size: 26px;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+}
+.icon {
+  margin-left: 30px;
+  font-size: 35px;
+  width: 45px;
+  display: inline-block;
+}
+
+.navbar {
+  height: 60px;
+  white-space: nowrap;
+  display: flex;
+}
+.navbar li {
+  margin: 11px 10px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  border-bottom: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  list-style: none;
+}
+
+/*搜索输入框*/
+.header-search {
+  margin-top: -2.5px;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.header-search input {
+  height: 30px;
+  width: 200px;
+  font-size: 13px;
+  border: 0;
+  text-indent: 10px;
+  background-color: #f5f5f5;
+  flex-grow: 1;
+}
+.header-search input:focus {
+  outline: none;
+}
+.header-search .search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00a9ff;
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/*用户*/
+.header-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header-right #user {
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.header-right #user img {
+  width: 100%;
+}
+
+.menu {
+  display: none;
+  z-index: 99;
+  line-height: 0px;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  width: 100px;
+  height: 78px;
+  padding: 10px;
+  border-radius: 5px;
+  top: 53px;
+  right: -20px;
+  text-align: center;
+  cursor: pointer;
+}
+.menu li {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  list-style: none;
+}
+.menu li:hover {
+  color: #409eff;
+}
+.menu li:first-child:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  right: 45px;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  transform: rotate(45deg);
+}
+
+.show {
+  display: block;
+}
+
+/* !important关键字来强制优先级 */
+.active {
+  color: #00a9ff !important;
+  border-bottom: 3px solid #00a9ff !important;
+}

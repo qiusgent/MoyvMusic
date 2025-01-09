@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moyv.music.dao.CollectMapper">
+    <resultMap id="BaseResultMap" type="com.moyv.music.domain.Collect">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="song_id" jdbcType="INTEGER" property="songId"/>
+        <result column="song_list_id" jdbcType="INTEGER" property="songListId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_list">
+        id,user_id,type,song_id,song_list_id,create_time
+    </sql>
+
+    <!--trim（修剪） 标签用于处理 SQL 语句的前后部分-->
+    <!--prefix（前缀）suffix（后缀）表示生成的字符串会被包裹在圆括号中-->
+    <!--suffixOverrides="," 的作用是去掉最后一个逗号（,）-->
+    <!--使用test进行条件判断-->
+    <insert id="insert" parameterType="com.moyv.music.domain.Collect">
+        insert into collect
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="songId != null">
+                song_id,
+            </if>
+            <if test="songListId != null">
+                song_list_id,
+            </if>
+            create_time,
+        </trim>
+            values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="songId != null">
+                #{songId},
+            </if>
+            <if test="songListId != null">
+                #{songListId},
+            </if>
+            now(),
+        </trim>
+    </insert>
+    
+
+    <delete id="delete"  parameterType="java.lang.Integer">
+        delete from collect where user_id = #{param1} and song_Id = #{param2}
+    </delete>
+
+    <select id="allCollect" resultMap="BaseResultMap">
+        select * from collect ;
+    </select>
+
+    <select id="collectOfuserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select * from collect where  user_id = #{userId} ;
+    </select>
+
+    <select id="exsistSongId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select count(*) from collect where user_id = #{userId} and song_Id = #{songId};
+    </select>
+</mapper>

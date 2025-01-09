@@ -1,0 +1,205 @@
+.play-bar {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.5s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.play-bar .item-up {
+  z-index: 99;
+  position: absolute;
+  bottom: 53px;
+  left: 0px;
+  cursor: pointer;
+}
+
+.play-bar .kongjian {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  min-width: 1000px;
+  background-color: #fff;
+}
+
+.play-bar .kongjian .item {
+  position: relative;
+  justify-items: center;
+  align-items: center;
+  display: flex;
+}
+
+.play-bar .kongjian .item .icon.active {
+  color: red !important;
+}
+
+.play-bar .kongjian .item .volume {
+  z-index: 101;
+  position: absolute;
+  display: none;
+  height: 100px;
+  top: -118px;
+  right: 10px;
+}
+
+.play-bar .kongjian .item .show-volume {
+  display: block;
+}
+
+.play-bar .kongjian .item-img {
+  width: 50px;
+  height: 50px;
+}
+
+.play-bar .kongjian .item-img img {
+  width: 100%;
+}
+
+.play-bar .kongjian .playing-speed {
+  height: 50px;
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-bar .kongjian .playing-speed .current-time,
+.play-bar .kongjian .playing-speed .left-time {
+  width: 70px;
+  text-align: center;
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+  top: -10px;
+}
+
+.play-bar .kongjian .playing-speed .progress-box {
+  flex: 1;
+}
+
+.play-bar .kongjian .playing-speed .progress-box .item-song-title {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  line-height: 10px;
+}
+
+.play-bar .kongjian .playing-speed .progress {
+  width: 100%;
+  background: #e4e7ed;
+  height: 6px;
+}
+
+.play-bar .kongjian .playing-speed .progress .bg {
+  height: 100%;
+}
+
+.play-bar .kongjian .playing-speed .progress .bg .cur-progress {
+  height: 100%;
+  background: #409eff;
+}
+
+.play-bar .kongjian .playing-speed .progress .idot {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  border-radius: 50%;
+  background-color: #000;
+  top: -11px;
+  vertical-align: middle;
+}
+
+.turn {
+  transform: rotate(180deg);
+}
+
+.show {
+  bottom: -50px;
+}
+
+.icon {
+  font-size: 1.2em;
+  color: #000;
+}
+
+/* 播放列表 */
+.the-aside {
+  position: absolute;
+  top: -432px;
+  right: 18px;
+  z-index: 99;
+  width: 480px;
+  height: 413px;
+  overflow-y: auto;
+  border: 1px solid #cccccc72;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.menus {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.menus-li {
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px 0;
+}
+
+.menus li {
+  cursor: pointer;
+  padding: 10.5px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd; /* 可选：添加分隔线 */
+}
+
+.menus li:last-child {
+  border-bottom: none; /* 去掉最后一个li的分隔线 */
+}
+
+.menus li:hover {
+  background-color: #f2f8fd;
+}
+
+.menus li.is-play {
+  background-color: #f2f8fd; /* 正在播放的背景颜色 */
+  color: #62b7ff;
+}
+
+.the-aside-index {
+  flex: 0.1;
+  text-align: center;
+}
+
+.the-aside-title {
+  flex: 0.4;
+}
+
+.the-aside-name {
+  flex: 0.2;
+}
+.the-aside-time {
+  flex: 0.2;
+  text-align: center;
+}
+.title {
+  background-color: #f8f8f8;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.ChouActive-prev {
+  fill: #272636;
+}
+.ChouActive {
+  fill: red !important;
+}

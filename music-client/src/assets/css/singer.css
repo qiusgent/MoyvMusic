@@ -1,0 +1,40 @@
+.singer {
+  margin: 30px 150px;
+  margin-top: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #ffffff;
+}
+
+.singer-header {
+  width: 100%;
+  padding: 0 40px;
+}
+
+.singerli {
+  display: inline-block;
+  line-height: 40px;
+  margin: 40px 20px 15px 20px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #9e9e9e;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.singerli.active {
+  color: #000000 !important;
+  font-weight: 600;
+  border-bottom: 4px solid #000000 !important;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  transform: translateY(15px);
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #409eff;
+  color: #fff !important;
+}

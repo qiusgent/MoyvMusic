@@ -1,0 +1,47 @@
+.scroll-top {
+  z-index: 101;
+  position: fixed;
+  width: 40px;
+  height: 20px;
+  right: 10px;
+  bottom: 80px;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgb(0 0 0 / 12%);
+}
+.scroll-top:hover:before {
+  top: 50%;
+}
+/* visibility 可见性 */
+/* .scroll-top:hover .box-in {
+
+  visibility: hidden;
+} */
+/* .scroll-top:before {
+  content: "回到顶部";
+  position: absolute;
+  font-weight: bold;
+  font-size: small;
+  width: 30px;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+.box-in {
+  visibility: visible;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border: 1px solid #409eff;
+  /* transparent 透明的 */
+  border-color: #000 transparent transparent #000;
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+
+.scroll-top:hover .box-in {
+  border-color: #409eff transparent transparent #409eff;
+}

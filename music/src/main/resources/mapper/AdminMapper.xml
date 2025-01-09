@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moyv.music.dao.AdminMapper">
+    <!--resultMap 是 MyBatis 中一个重要的元素，用于定义如何将查询结果映射到 Java 对象或数据结构中-->
+    <resultMap id="BaseResultMap" type="com.moyv.music.domain.Admin">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
+
+    <select id="verifyPassword" resultType="java.lang.Integer">
+        select  count(*) from  admin  where name=#{param1} and password=#{param2};
+    </select>
+</mapper>

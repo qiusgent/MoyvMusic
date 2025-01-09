@@ -1,0 +1,30 @@
+.swiper1 {
+  display: flex;
+  width: 100%;
+  background-color: #f8f8ff;
+  height: 355px;
+}
+
+.swiper {
+  width: 80%;
+  margin: auto;
+  margin-top: 82px;
+}
+
+.swiper img {
+  width: 100%;
+}
+.el-carousel__mask {
+  width: 100%;
+  background-color: #f0f0f0;
+  opacity: 0.24;
+  transition: 0.2s;
+}
+
+.el-carousel__indicators--outside {
+  bottom: 26px;
+  text-align: center;
+  position: static;
+  transform: none;
+  width: 100%;
+}

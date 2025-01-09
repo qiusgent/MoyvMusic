@@ -1,0 +1,24 @@
+/* .home .swiper-container {
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+}
+
+.home .swiper-container img {
+  width: 100%;
+} */
+
+.section {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  color: #000000;
+}

@@ -1,0 +1,26 @@
+.upload {
+  width: 100%;
+  text-align: center;
+}
+
+.upload .upload-title {
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.upload hr {
+  width: 95%;
+}
+
+.upload .section {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
